@@ -1,0 +1,25 @@
+<!--
+      <div>
+      <h3> {{title}}</h3>
+      <input type="text" [(ngModel)]="queryString" id="search" placeholder="Search to type">
+      
+      <ul>
+        <li *ngFor="let n of names | FilterPipe: queryString">
+          {{n}}
+        </li>
+      </ul>
+    </div>
+  -->
+  <input type="text" [(ngModel)]="queryString" id="search" placeholder="Search to type">
+
+  
+  <div *ngIf="characterList.length">
+    <h3>Api RICK & MORTY con ANGULAR</h3>
+    <div *ngFor="let character of characterList | FilterPipe: queryString">
+
+      <h4>{{ character.id }} - {{ character.name | uppercase}}</h4>
+      <img [src]="character.image" [alt]="character.name">
+      <h3>{{character.location.name}}</h3>
+
+    </div>
+  </div>
